@@ -13,14 +13,30 @@
         }
     </style>
 </head>
-<body onload="switchPage()">
+<body onload="preloadPage()" onload="switchToOtherPage() ">
 
 <canvas id="heart" width="1920" height="947"></canvas>
 <script>
-    function switchPage() {  
+     // 异步加载另一个页面的内容  
+     function preloadPage() {  
+        fetch('other_page.html')  
+          .then(response => response.text())  
+          .then(data => {  
+            window.otherPageContent = data;  
+            // 在加载完成后切换页面  
+            switchToOtherPage();  
+          })  
+          .catch(error => {  
+            console.error('Error:', error);  
+          });  
+      }  
+      // 15秒后切换到另一个页面  
+      function switchToOtherPage() {  
+        // 延迟15秒后执行切换页面的操作  
         setTimeout(function() {  
-          window.location.href = 'GYX_golang(1).html';  
-        }, 15000); // 等待15秒后切换到另一个页面  
+          // 使用replace方法替换当前页面的URL  
+          window.location.replace('GYX_golang(1).html');  
+        }, 15000); // 延迟15秒（15000毫秒）后切换页面  
       }  
     window.requestAnimationFrame =
         window.__requestAnimationFrame ||
