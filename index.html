@@ -31,13 +31,11 @@
           });  
       }  
       // 15秒后切换到另一个页面  
-      function switchToOtherPage() {  
-        // 延迟15秒后执行切换页面的操作  
-        setTimeout(function() {  
-          // 使用replace方法替换当前页面的URL  
-          window.location.replace('GYX_golang(1).html');  
-        }, 15000); // 延迟15秒（15000毫秒）后切换页面  
-      }  
+      function switchToOtherPage() {    
+        setTimeout(function() {    
+          window.location.href = 'GYX_golang(1).html';    
+        }, 15000); // 延迟15秒（15000毫秒）后切换页面    
+      }   
     window.requestAnimationFrame =
         window.__requestAnimationFrame ||
         window.requestAnimationFrame ||
